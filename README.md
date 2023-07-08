@@ -18,11 +18,11 @@ Create your settings class:
 
 ```java
 public static class Settings {
-    @Editable
-    public float floatVal = 12.3f;
+    public float characterSpeed = 12.3f;
 
-    @Editable(name = "a name")
-    public int intVal = 99;
+    // Optional - set a custom name for this field
+    @Scope.Lens(name = "Jump height")
+    public int tilesJumpHeight = 99;
 }
 ```
 
@@ -78,7 +78,7 @@ public class Main {
         // Add a custom adapter to them
         adapters.put(Color.class, new ColorAdapter());
         // Use the custom map of adapters when creating ObjectScope
-        ObjectScope scope = new ObjectScope("My scope with custom adapters", settings, adapters);
+        ObjectScope scope = new ObjectScope("Scope with custom adapters", settings, adapters);
     }
 }
 ```
