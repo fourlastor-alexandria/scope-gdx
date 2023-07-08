@@ -10,12 +10,12 @@ public class Group {
         this.scope = scope;
     }
 
-    public void display(Scope.Visitor visitor) {
+    public void display() {
         if (ImGui.begin(scope.name)) {
             boolean shouldReload = ImGui.button("Apply");
-            scope.display(visitor);
+            scope.display();
             if (shouldReload) {
-                scope.apply(visitor);
+                scope.apply();
             }
         }
         ImGui.end();
