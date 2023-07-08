@@ -39,7 +39,7 @@ Clicking "apply" will update the field values of the object.
 Custom adapters can be created to treat classes in a special way:
 
 ```java
-// ColorAdapter is part of the default adapters already, let's pretend it wasn't
+// ColorAdapter is part of the default adapters already, let's create one that shows also the alpha of the color
 public class ColorAdapter implements Scope.Adapter {
     @Override
     public Scope create(String name, Object instance, Field field, Map<Class<?>, Scope.Adapter> adapters) {
@@ -63,7 +63,8 @@ public class ColorAdapter implements Scope.Adapter {
 
         @Override
         public void display() {
-            ImGui.colorEdit3(name, value);
+            // colorEdit4 has the alpha
+            ImGui.colorEdit4(name, value, ImGuiColorEditFlags.AlphaBar);
         }
 
         @Override
