@@ -5,10 +5,11 @@ import imgui.type.ImInt;
 import io.github.fourlastor.scope.FieldScope;
 import io.github.fourlastor.scope.Scope;
 import java.lang.reflect.Field;
+import java.util.Map;
 
 public class IntAdapter implements Scope.Adapter {
     @Override
-    public Scope create(String name, Object instance, Field field) {
+    public Scope create(String name, Object instance, Field field, Map<Class<?>, Scope.Adapter> adapters) {
         return new IntFieldScope(name, instance, field);
     }
 

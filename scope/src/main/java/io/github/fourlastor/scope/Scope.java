@@ -1,6 +1,11 @@
 package io.github.fourlastor.scope;
 
+import io.github.fourlastor.scope.adapter.BooleanAdapter;
+import io.github.fourlastor.scope.adapter.FloatAdapter;
+import io.github.fourlastor.scope.adapter.IntAdapter;
 import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Scope {
 
@@ -15,6 +20,14 @@ public abstract class Scope {
     public abstract void apply();
 
     public interface Adapter {
-        Scope create(String name, Object instance, Field field);
+        Scope create(String name, Object instance, Field field, Map<Class<?>, Adapter> adapters);
+
+        static Map<Class<?>, Adapter> createDefaultAdapters() {
+            HashMap<Class<?>, Adapter> adapters = new HashMap<>();
+            adapters.put(int.class, new IntAdapter());
+            adapters.put(float.class, new FloatAdapter());
+            adapters.put(boolean.class, new BooleanAdapter());
+            return adapters;
+        }
     }
 }
