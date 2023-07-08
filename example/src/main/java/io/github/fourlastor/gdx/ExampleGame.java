@@ -11,7 +11,8 @@ import io.github.fourlastor.scope.ScopeRenderer;
 public class ExampleGame extends ApplicationAdapter {
 
     private ScopeRenderer renderer;
-    private final Group group1 = new Group(new ObjectScope("Settings", new Settings()));
+    private final Settings color = new Settings();
+    private final Group group1 = new Group(new ObjectScope("Settings", color));
     private final Group group2 = new Group(new ObjectScope("Other", new OtherSettings()));
 
     @Override
@@ -22,7 +23,7 @@ public class ExampleGame extends ApplicationAdapter {
 
     @Override
     public void render() {
-        ScreenUtils.clear(Color.DARK_GRAY, true);
+        ScreenUtils.clear(color.color, true);
         renderer.start();
         renderer.render(group1);
         renderer.render(group2);
@@ -39,6 +40,9 @@ public class ExampleGame extends ApplicationAdapter {
 
         @Editable
         public InnerSettings innerSettings = new InnerSettings();
+
+        @Editable
+        public Color color = new Color(Color.DARK_GRAY);
     }
 
     public static class InnerSettings {

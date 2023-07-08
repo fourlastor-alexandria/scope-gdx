@@ -1,6 +1,8 @@
 package io.github.fourlastor.scope;
 
+import com.badlogic.gdx.graphics.Color;
 import io.github.fourlastor.scope.adapter.BooleanAdapter;
+import io.github.fourlastor.scope.adapter.ColorAdapter;
 import io.github.fourlastor.scope.adapter.FloatAdapter;
 import io.github.fourlastor.scope.adapter.IntAdapter;
 import java.lang.reflect.Field;
@@ -27,6 +29,7 @@ public abstract class Scope {
             adapters.put(int.class, new IntAdapter());
             adapters.put(float.class, new FloatAdapter());
             adapters.put(boolean.class, new BooleanAdapter());
+            adapters.put(Color.class, new ColorAdapter());
             return adapters;
         }
     }
