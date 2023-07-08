@@ -27,3 +27,8 @@ public static class Settings {
 ```
 
 Fields must be public, non-final and annotated with `@Editable`.
+
+![image](https://github.com/fourlastor-alexandria/scope-gdx/assets/1263058/9d90766e-5227-4ab5-859d-764e71fa02c8)
+
+clicking "apply" will update the field values of the object.
+
