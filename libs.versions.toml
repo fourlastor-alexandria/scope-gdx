@@ -6,6 +6,7 @@ spotless = "6.10.0"
 [libraries]
 gdx-core = { module = "com.badlogicgames.gdx:gdx", version.ref = "gdx" }
 gdx-backend-lwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "gdx" }
+gdx-platform = { module = "com.badlogicgames.gdx:gdx-platform", version.ref = "gdx" }
 imgui-binding = { module = "io.github.spair:imgui-java-binding", version.ref = "imgui"}
 imgui-lwgjl3 = { module = "io.github.spair:imgui-java-lwjgl3", version.ref = "imgui"}
 imgui-natives-linux = { module = "io.github.spair:imgui-java-natives-linux", version.ref = "imgui"}
