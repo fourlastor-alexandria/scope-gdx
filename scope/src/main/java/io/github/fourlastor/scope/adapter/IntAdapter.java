@@ -14,9 +14,9 @@ public class IntAdapter implements Scope.Adapter {
 
     private static class IntFieldScope extends FieldScope {
 
-        public ImInt value;
+        private final ImInt value;
 
-        protected IntFieldScope(String name, Object instance, Field field) {
+        IntFieldScope(String name, Object instance, Field field) {
             super(name, instance, field);
             try {
                 this.value = new ImInt(field.getInt(instance));

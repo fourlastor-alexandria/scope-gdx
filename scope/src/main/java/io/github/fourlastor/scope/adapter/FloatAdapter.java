@@ -14,9 +14,9 @@ public class FloatAdapter implements Scope.Adapter {
 
     private static class FloatFieldScope extends FieldScope {
 
-        public ImFloat value;
+        private final ImFloat value;
 
-        protected FloatFieldScope(String name, Object instance, Field field) {
+        FloatFieldScope(String name, Object instance, Field field) {
             super(name, instance, field);
             try {
                 this.value = new ImFloat(field.getFloat(instance));

@@ -14,9 +14,9 @@ public class BooleanAdapter implements Scope.Adapter {
 
     private static class BooleanFieldScope extends FieldScope {
 
-        public ImBoolean value;
+        private final ImBoolean value;
 
-        protected BooleanFieldScope(String name, Object instance, Field field) {
+        BooleanFieldScope(String name, Object instance, Field field) {
             super(name, instance, field);
             try {
                 this.value = new ImBoolean(field.getBoolean(instance));
