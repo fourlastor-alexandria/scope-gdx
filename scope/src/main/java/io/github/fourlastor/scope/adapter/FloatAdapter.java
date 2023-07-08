@@ -4,7 +4,6 @@ import imgui.ImGui;
 import imgui.type.ImFloat;
 import io.github.fourlastor.scope.FieldScope;
 import io.github.fourlastor.scope.Scope;
-
 import java.lang.reflect.Field;
 
 public class FloatAdapter implements Scope.Adapter {

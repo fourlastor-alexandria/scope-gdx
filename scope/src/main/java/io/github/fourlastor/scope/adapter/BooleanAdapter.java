@@ -4,7 +4,6 @@ import imgui.ImGui;
 import imgui.type.ImBoolean;
 import io.github.fourlastor.scope.FieldScope;
 import io.github.fourlastor.scope.Scope;
-
 import java.lang.reflect.Field;
 
 public class BooleanAdapter implements Scope.Adapter {

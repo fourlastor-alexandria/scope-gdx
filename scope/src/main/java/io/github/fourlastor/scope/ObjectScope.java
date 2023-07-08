@@ -6,7 +6,6 @@ import imgui.flag.ImGuiTreeNodeFlags;
 import io.github.fourlastor.scope.adapter.BooleanAdapter;
 import io.github.fourlastor.scope.adapter.FloatAdapter;
 import io.github.fourlastor.scope.adapter.IntAdapter;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
