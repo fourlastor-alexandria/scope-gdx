@@ -18,10 +18,9 @@ public class ScopeRenderer implements Disposable {
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImguiVisitor visitor = new ImguiVisitor();
 
-    private final Group group;
+    private boolean manualStart = false;
 
-    public ScopeRenderer(Group group, int sizePixels) {
-        this.group = group;
+    public ScopeRenderer(int sizePixels) {
         long windowHandle = ((Lwjgl3Graphics) Gdx.graphics).getWindow().getWindowHandle();
         GLFW.glfwMakeContextCurrent(windowHandle);
         GL.createCapabilities();
@@ -37,14 +36,36 @@ public class ScopeRenderer implements Disposable {
         imGuiGl3.init("#version 110");
     }
 
-    public void render() {
+    public void render(Group group) {
+        if (!manualStart) {
+            startInternal();
+        }
+        group.display(visitor);
+        if (!manualStart) {
+            endInternal();
+        }
+    }
+
+    public void start() {
+        manualStart = true;
+        startInternal();
+    }
+
+    public void end() {
+        endInternal();
+        manualStart = false;
+    }
+
+    private void startInternal() {
         imGuiGlfw.newFrame();
         ImGui.newFrame();
         float width = ImGui.getMainViewport().getSizeX();
         float height = ImGui.getMainViewport().getSizeY();
         ImGui.setNextWindowSize(width * 0.3f, height * 0.8f, ImGuiCond.Once);
         ImGui.setNextWindowPos(width * 0.6f, height * 0.1f, ImGuiCond.Once);
-        group.display(visitor);
+    }
+
+    private void endInternal() {
         ImGui.render();
         imGuiGl3.renderDrawData(ImGui.getDrawData());
     }
