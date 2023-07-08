@@ -1,5 +1,7 @@
 # Scope
 
+[![Scope on Maven Central](https://img.shields.io/maven-central/v/io.github.fourlastor.gdx/scope?label=scope)](https://search.maven.org/artifact/io.github.fourlastor.gdx/scope)
+
 An easy-to-use debug display.
 
 ## Setup
