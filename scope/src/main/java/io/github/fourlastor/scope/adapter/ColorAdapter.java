@@ -2,10 +2,7 @@ package io.github.fourlastor.scope.adapter;
 
 import com.badlogic.gdx.graphics.Color;
 import imgui.ImGui;
-import imgui.type.ImBoolean;
-import io.github.fourlastor.scope.FieldScope;
 import io.github.fourlastor.scope.Scope;
-
 import java.lang.reflect.Field;
 import java.util.Map;
 

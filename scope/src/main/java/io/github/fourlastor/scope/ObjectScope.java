@@ -20,19 +20,17 @@ public class ObjectScope extends Scope {
         Class<?> clazz = instance.getClass();
         fields = new ArrayList<>();
         for (Field field : clazz.getFields()) {
-            if (field.isAnnotationPresent(Editable.class)) {
-                Editable editable = field.getAnnotation(Editable.class);
-                Class<?> type = field.getType();
-                String fieldName = editable.name().isEmpty() ? field.getName() : editable.name();
-                Adapter adapter = adapters.get(type);
-                if (adapter != null) {
-                    fields.add(adapter.create(fieldName, instance, field, adapters));
-                } else if (!type.isPrimitive()) {
-                    try {
-                        fields.add(new ObjectScope(fieldName, field.get(instance), adapters));
-                    } catch (IllegalAccessException e) {
-                        throw new RuntimeException(e);
-                    }
+            Lens lens = field.getAnnotation(Lens.class);
+            Class<?> type = field.getType();
+            String fieldName = lens == null || lens.name().isEmpty() ? field.getName() : lens.name();
+            Adapter adapter = adapters.get(type);
+            if (adapter != null) {
+                fields.add(adapter.create(fieldName, instance, field, adapters));
+            } else if (!type.isPrimitive()) {
+                try {
+                    fields.add(new ObjectScope(fieldName, field.get(instance), adapters));
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
                 }
             }
         }

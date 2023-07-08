@@ -5,6 +5,8 @@ import io.github.fourlastor.scope.adapter.BooleanAdapter;
 import io.github.fourlastor.scope.adapter.ColorAdapter;
 import io.github.fourlastor.scope.adapter.FloatAdapter;
 import io.github.fourlastor.scope.adapter.IntAdapter;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,5 +34,10 @@ public abstract class Scope {
             adapters.put(Color.class, new ColorAdapter());
             return adapters;
         }
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface Lens {
+        String name() default "";
     }
 }
