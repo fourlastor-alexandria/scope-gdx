@@ -8,6 +8,10 @@ plugins {
     alias(libs.plugins.spotless)
 }
 
+application {
+    mainClass.set("io.github.fourlastor.gdx.DesktopLauncher")
+}
+
 
 repositories {
     mavenCentral()
