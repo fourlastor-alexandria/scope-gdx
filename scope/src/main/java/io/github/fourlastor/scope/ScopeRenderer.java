@@ -18,7 +18,6 @@ public class ScopeRenderer implements Disposable {
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImguiVisitor visitor = new ImguiVisitor();
 
-
     private boolean manualStart = false;
 
     public ScopeRenderer(int sizePixels) {
