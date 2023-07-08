@@ -11,17 +11,22 @@ import io.github.fourlastor.scope.ScopeRenderer;
 public class ExampleGame extends ApplicationAdapter {
 
     private ScopeRenderer renderer;
+    private final Group group1 = new Group(new ObjectScope("Settings", new Settings()));
+    private final Group group2 = new Group(new ObjectScope("Other", new OtherSettings()));
 
     @Override
     public void create() {
         super.create();
-        renderer = new ScopeRenderer(new Group(new ObjectScope("Settings", new Settings())), 48);
+        renderer = new ScopeRenderer(48);
     }
 
     @Override
     public void render() {
         ScreenUtils.clear(Color.DARK_GRAY, true);
-        renderer.render();
+        renderer.start();
+        renderer.render(group1);
+        renderer.render(group2);
+        renderer.end();
     }
 
     public static class Settings {
@@ -34,14 +39,6 @@ public class ExampleGame extends ApplicationAdapter {
 
         @Editable
         public InnerSettings innerSettings = new InnerSettings();
-
-        @Override
-        public String toString() {
-            return "Settings{" +
-                    "floatVal=" + floatVal +
-                    ", intVal=" + intVal +
-                    '}';
-        }
     }
 
     public static class InnerSettings {
@@ -50,5 +47,13 @@ public class ExampleGame extends ApplicationAdapter {
 
         @Editable(name = "Anything goes")
         public float anythingGoes;
+    }
+
+    public static class OtherSettings {
+        @Editable
+        public int iterations;
+
+        @Editable
+        public float zoom;
     }
 }
