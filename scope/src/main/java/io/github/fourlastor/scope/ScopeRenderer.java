@@ -16,7 +16,6 @@ public class ScopeRenderer implements Disposable {
 
     private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
-    private final ImguiVisitor visitor = new ImguiVisitor();
 
     private boolean manualStart = false;
 
@@ -40,7 +39,7 @@ public class ScopeRenderer implements Disposable {
         if (!manualStart) {
             startInternal();
         }
-        group.display(visitor);
+        group.display();
         if (!manualStart) {
             endInternal();
         }

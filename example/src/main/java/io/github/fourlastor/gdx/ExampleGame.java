@@ -46,7 +46,7 @@ public class ExampleGame extends ApplicationAdapter {
         public int another;
 
         @Editable(name = "Anything goes")
-        public float anythingGoes;
+        public boolean anythingGoes;
     }
 
     public static class OtherSettings {

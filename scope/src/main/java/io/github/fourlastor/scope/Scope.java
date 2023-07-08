@@ -1,5 +1,7 @@
 package io.github.fourlastor.scope;
 
+import java.lang.reflect.Field;
+
 public abstract class Scope {
 
     public final String name;
@@ -8,17 +10,11 @@ public abstract class Scope {
         this.name = name;
     }
 
-    public abstract void display(Visitor visitor);
+    public abstract void display();
 
-    public abstract void apply(Visitor visitor);
+    public abstract void apply();
 
-    public interface Visitor {
-        void visitDisplay(FloatScope control);
-
-        void visitDisplay(IntScope intControl);
-
-        void visitDisplay(ObjectScope control);
-
-        void visitApply(ObjectScope control);
+    public interface Adapter {
+        Scope create(String name, Object instance, Field field);
     }
 }
