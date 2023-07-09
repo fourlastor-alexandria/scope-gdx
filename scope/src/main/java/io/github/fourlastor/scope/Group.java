@@ -4,10 +4,16 @@ import imgui.ImGui;
 
 public class Group {
 
-    public final Scope scope;
+    private final Scope scope;
+    private final Runnable onApply;
 
     public Group(Scope scope) {
+        this(scope, null);
+    }
+
+    public Group(Scope scope, Runnable onApply) {
         this.scope = scope;
+        this.onApply = onApply;
     }
 
     public void display() {
@@ -16,6 +22,9 @@ public class Group {
             scope.display();
             if (shouldReload) {
                 scope.apply();
+                if (onApply != null) {
+                    onApply.run();
+                }
             }
         }
         ImGui.end();

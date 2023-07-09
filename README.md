@@ -30,9 +30,40 @@ public static class Settings {
 
 Fields must be public and non-final.
 
+Create a `Group` to render your settings, and a `ScopeRenderer` (you can use multiple `Group`s with the same renderer:
+
+```java
+class MyGame {
+    Settings settings;
+    Group group;
+    ScopeRenderer renderer;
+
+    public void create() {
+        settings = new Settings();
+        group = new Group(new ObjectScope("Settings", settings));
+        renderer = new ScopeRenderer(48);
+    }
+    
+    public void render() {
+        // start/stop are optional when rendering a single group
+        renderer.start();
+        renderer.render(group);
+        renderer.end();
+    }
+}
+```
+
 https://github.com/fourlastor-alexandria/scope-gdx/assets/1263058/92739587-1f64-419d-910d-9c0a210a2b11
 
 Clicking "apply" will update the field values of the object.
+
+### Apply callback
+
+You can pass a `Runnable` to `Group` to be notified when changed are applied:
+
+```java
+new Group("Settings", settings, () -> System.out.println("settings changed!"));
+```
 
 ### Custom adapters
 

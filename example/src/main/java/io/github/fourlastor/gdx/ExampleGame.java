@@ -13,7 +13,8 @@ public class ExampleGame extends ApplicationAdapter {
     private ScopeRenderer renderer;
     private final Settings settings = new Settings();
     private final Group group1 = new Group(new ObjectScope("Settings", settings));
-    private final Group group2 = new Group(new ObjectScope("Other", new OtherSettings()));
+    private final OtherSettings otherSettings = new OtherSettings();
+    private final Group group2 = new Group(new ObjectScope("Other", otherSettings), () -> System.out.println("OtherSettings changed: " + otherSettings));
 
     @Override
     public void create() {
@@ -53,5 +54,13 @@ public class ExampleGame extends ApplicationAdapter {
         public int iterations;
 
         public float zoom;
+
+        @Override
+        public String toString() {
+            return "OtherSettings{" +
+                    "iterations=" + iterations +
+                    ", zoom=" + zoom +
+                    '}';
+        }
     }
 }
