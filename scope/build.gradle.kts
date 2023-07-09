@@ -26,9 +26,9 @@ java {
 
 
 dependencies {
-    implementation(libs.gdx.core)
+    api(libs.gdx.core)
+    api(libs.imgui.binding)
     implementation(libs.gdx.backend.lwjgl3)
-    implementation(libs.imgui.binding)
     implementation(libs.imgui.lwgjl3)
     implementation(libs.imgui.natives.linux)
     implementation(libs.imgui.natives.macos)
