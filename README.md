@@ -45,8 +45,6 @@ Fields must be public and non-final.
 
 Create a `Group` to render your settings, and a `ScopeRenderer` (you can use multiple `Group`s with the same renderer):
 
-:warning: There must be only one instance of `ScopeRender`, multiple instances will mess with input detection.
-
 ```java
 class MyGame {
     Settings settings;
@@ -68,9 +66,13 @@ class MyGame {
 }
 ```
 
-https://github.com/fourlastor-alexandria/scope-gdx/assets/1263058/92739587-1f64-419d-910d-9c0a210a2b11
+:warning: There must be only one instance of `ScopeRender` in your game, multiple instances will mess with input detection.
 
-Clicking "apply" will update the field values of the object.
+[scope.webm](https://github.com/fourlastor-alexandria/scope-gdx/assets/1263058/556eb628-5038-41b5-8de6-f9589392a4f5)
+
+> _Recording curtesy of [Sandra Moen](https://sandramoen.no/) as seen in [Trans Agent X](https://store.steampowered.com/app/2314960/Trans_Agent_X/)_
+
+Clicking "Apply" will update the field values of the object.
 
 ### Apply callback
 
