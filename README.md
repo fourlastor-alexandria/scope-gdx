@@ -68,9 +68,7 @@ class MyGame {
 
 :warning: There must be only one instance of `ScopeRender` in your game, multiple instances will mess with input detection.
 
-[scope.webm](https://github.com/fourlastor-alexandria/scope-gdx/assets/1263058/556eb628-5038-41b5-8de6-f9589392a4f5)
-
-> _Recording curtesy of [Sandra Moen](https://sandramoen.no/) as seen in [Trans Agent X](https://store.steampowered.com/app/2314960/Trans_Agent_X/)_
+https://github.com/fourlastor-alexandria/scope-gdx/assets/1263058/92739587-1f64-419d-910d-9c0a210a2b11
 
 Clicking "Apply" will update the field values of the object.
 
@@ -133,3 +131,9 @@ public class Main {
     }
 }
 ```
+
+## Also seen in
+
+[scope.webm](https://github.com/fourlastor-alexandria/scope-gdx/assets/1263058/556eb628-5038-41b5-8de6-f9589392a4f5)
+
+> _[Trans Agent X](https://store.steampowered.com/app/2314960/Trans_Agent_X/) by [Sandra Moen](https://sandramoen.no/)_
