@@ -18,6 +18,7 @@ implementation("io.github.fourlastor.gdx:scope:$version")
 
 Create your settings class:
 
+Java
 ```java
 public static class Settings {
     public float characterSpeed = 12.3f;
@@ -27,10 +28,24 @@ public static class Settings {
     public int tilesJumpHeight = 99;
 }
 ```
+Kotlin
+```kotlin
+class Settings {
+    @JvmField // Mandatory in Kotlin
+    var characterSpeed: Float = 12.3f;
+    @JvmField
+    // Optional - set a custom name for this field
+    @field:Scope.Lens(name = "Jump height")
+    var tilesJumpHeight: Int = 99
+}
+```
+
 
 Fields must be public and non-final.
 
-Create a `Group` to render your settings, and a `ScopeRenderer` (you can use multiple `Group`s with the same renderer:
+Create a `Group` to render your settings, and a `ScopeRenderer` (you can use multiple `Group`s with the same renderer):
+
+:warning: There must be only one instance of `ScopeRender`, multiple instances will mess with input detection.
 
 ```java
 class MyGame {
